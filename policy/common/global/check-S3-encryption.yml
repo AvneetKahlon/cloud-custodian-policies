@@ -1,0 +1,22 @@
+policies:
+  - name: s3-bucket-encryption-AES256
+    resource: s3
+    region: ca-central-1
+    filters:
+      - type: bucket-encryption
+        state: True
+        crypto: AES256
+  - name: s3-bucket-encryption-KMS
+    resource: s3
+    region: ca-central-1
+    filters:
+      - type: bucket-encryption
+        state: True
+        crypto: aws:kms
+        key: alias/some/alias/key
+  - name: s3-bucket-encryption-off
+    resource: s3
+    region: ca-central-1
+    filters:
+      - type: bucket-encryption
+        state: False
